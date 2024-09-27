@@ -8,7 +8,7 @@ def render_index_page():
     return render_template('index.html')
 
 @app.route("/emotionDetector")
-def emotion_detector():
+def detect_emotion():
     # Retrieve the text to analyze from the request arguments
     text_to_analyze = request.args.get('textToAnalyze')
 
@@ -16,12 +16,12 @@ def emotion_detector():
     response = emotion_detector(text_to_analyze)
 
     # Extract the label and score from the response
-    #dominant_emotion = response.popItem()
+    dominant_emotion = response.popitem()
 
 
     # Return a formatted string with the sentiment label and score
-    #return "For the given statement  {}. The dominant emotion is {}.".format(response.split('_')[1], dominant_emotion)
-    return "hello"
+    return "For the given statement  {}. The dominant emotion is {}.".format(response, dominant_emotion)
+    
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=2000)
