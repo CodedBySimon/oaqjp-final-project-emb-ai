@@ -14,5 +14,4 @@ def emotion_detector(text_to_analyse):
     highest_score =  max(emotions, key=emotions.get)
     emotions.update( {'dominant_emotion': highest_score})
 
-
     return emotions
